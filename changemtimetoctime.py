@@ -5,12 +5,12 @@ import sys
 try:
     dir = sys.argv[1] # Check if the user has specified a directory to look in, otherwise use the current directory of the script.
     if os.path.isdir(dir):
-        print (f"Changing directory to: '{dir}'")
-        os.chdir(dir) #if directory is valid, change working directory to what the user specified
+        print (f"Changing directory to: '{dir}'") # if directory is valid, change working directory to what the user specified.
+        os.chdir(dir) 
     else:
-        sys.exit(f"'{dir}' is not a directory, please enter a valid directory")
+        sys.exit(f"'{dir}' is not a directory, please enter a valid directory") # exit if the directory specified is not valid.
 except (IndexError):
-    print(f"No directory defined, looking in current directory: '{os.getcwd()}'")
+    print(f"No directory defined, looking in current directory: '{os.getcwd()}'") # IndexError if no directory name is specified, revert to the current directory.
     dir = os.getcwd()
 
 def ctime(file): # to return c time of files.
