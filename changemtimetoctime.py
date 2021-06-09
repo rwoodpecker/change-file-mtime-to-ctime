@@ -2,6 +2,17 @@ import os
 import platform
 import sys
 
+try:
+    dir = sys.argv[1] # Check if the user has specified a directory to look in, otherwise use the current directory of the script.
+    if os.path.isdir(dir):
+        print (f"Changing directory to: '{dir}'")
+        os.chdir(dir) #if directory is valid, change working directory to what the user specified
+    else:
+        sys.exit(f"'{dir}' is not a directory, please enter a valid directory")
+except (IndexError):
+    print(f"No directory defined, looking in current directory: '{os.getcwd()}'")
+    dir = os.getcwd()
+
 def ctime(file): # to return c time of files.
     if platform.system() == 'Windows':
         return os.path.getctime(file)
